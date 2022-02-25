@@ -1,0 +1,31 @@
+
+
+<section  class="position-absolute top-50 start-50 translate-middle">
+  <div class="card mb-5" style="width: 400px;">
+      <div class="card-body">
+          <h3 class="card-title text-center mt-4">Connection</h3>
+          <div class="row mt-4">
+              <form [formGroup]="formGroup" (ngSubmit)="login()">
+                <div class="col-12 mb-4">
+                  <input type="email" class="form-control" formControlName="email" placeholder="Email" autocomplete="email">
+                  <div *ngIf="formGroup.get('email')?.invalid && (formGroup.get('email')?.touched || formGroup.get('email')?.dirty)">
+                    <div class="text-danger" *ngIf="formGroup.get('email')?.getError('required')">Ce champs est obligatoire !</div>
+                    <div  class="text-danger" *ngIf="formGroup.get('email')?.getError('email')">Ce champs doit respecter la frome d'un email !</div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <input type="password" class="form-control" formControlName="password" placeholder="mot de passe" autocomplete="current-password">
+                  <div *ngIf="formGroup.get('password')?.invalid && (formGroup.get('password')?.touched || formGroup.get('password')?.dirty)">
+                    <div class="text-danger" *ngIf="formGroup.get('password')?.getError('required')">Ce champs est obligatoire !</div>
+                    <div  class="text-danger" *ngIf="formGroup.get('password')?.getError('maxlength')">Ce champs est très long !</div>
+                    <div  class="text-danger" *ngIf="formGroup.get('password')?.getError('minlength')">Ce champs est très petite !</div>
+                  </div>
+                </div>
+                <div class="col-12 mb-6">
+                    <button [disabled]="formGroup.invalid" type="submit" class="btn btn-outline-success" style="width: 100%;">Se Connecter</button>
+                </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>

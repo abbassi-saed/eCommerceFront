@@ -1,0 +1,57 @@
+<div class="container-fluid page">
+  <div class="d-flex page__box p-3 mt-2">Add</div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="page__content-data position-absolute text-center">
+      <section  class="position-absolute top-50 start-50 translate-middle">
+        <div class="card mb-5" style="width: 600px;">
+            <div class="card-body">
+                <h3 class="card-title text-center mt-4">Create new Product</h3>
+                <div class="row mt-4">
+                  <form [formGroup]="formGroup" (ngSubmit)="register()">
+                      <div class="col-12 mb-4">
+                        <input type="text" class="form-control" formControlName="title" placeholder="Title" >
+                        <div *ngIf="formGroup.get('title')?.invalid && (formGroup.get('title')?.touched || formGroup.get('title')?.dirty)">
+                          <div class="text-danger" *ngIf="formGroup.get('title')?.getError('required')">Ce champs est obligatoire !</div>
+                          <!-- <div  class="text-danger" *ngIf="formGroup.get('userName')?.getError('userName')">Ce champs doit respecter la frome d'un email !</div> -->
+                        </div>
+                      </div>
+                      <div class="col-12 mb-4">
+                        <input type="number" class="form-control" formControlName="price" placeholder="Price" >
+                        <div *ngIf="formGroup.get('price')?.invalid && (formGroup.get('price')?.touched || formGroup.get('price')?.dirty)">
+                          <div class="text-danger" *ngIf="formGroup.get('price')?.getError('required')">Ce champs est obligatoire !</div>
+                          <!-- <div  class="text-danger" *ngIf="formGroup.get('email')?.getError('email')">Ce champs doit respecter la frome d'un email !</div> -->
+                        </div>
+                      </div>
+                      <div class="col-12 mb-4">
+                        <input type="text" class="form-control" formControlName="description" placeholder="Description" >
+                        <div *ngIf="formGroup.get('description')?.invalid && (formGroup.get('description')?.touched || formGroup.get('description')?.dirty)">
+                          <div class="text-danger" *ngIf="formGroup.get('description')?.getError('required')">Ce champs est obligatoire !</div>
+                          <!-- <div  class="text-danger" *ngIf="formGroup.get('email')?.getError('email')">Ce champs doit respecter la frome d'un email !</div> -->
+                        </div>
+                      </div>
+                      <!-- <div class="col-12 mb-4">
+                        <input type="file" class="form-control" formControlName="image" placeholder="Image">
+                        <div *ngIf="formGroup.get('image')?.invalid && (formGroup.get('image')?.touched || formGroup.get('image')?.dirty)">
+                          <div class="text-danger" *ngIf="formGroup.get('image')?.getError('required')">Ce champs est obligatoire !</div>
+                          <div  class="text-danger" *ngIf="formGroup.get('image')?.getError('image')">Ce champs doit respecter la frome d'un email !</div>
+                        </div>
+                      </div> -->
+                      <div class="col-12 mb-4">
+                        <input type="text" class="form-control" formControlName="category" placeholder="Category" >
+                        <div *ngIf="formGroup.get('category')?.invalid && (formGroup.get('category')?.touched || formGroup.get('category')?.dirty)">
+                          <div class="text-danger" *ngIf="formGroup.get('category')?.getError('required')">Ce champs est obligatoire !</div>
+                          <!-- <div  class="text-danger" *ngIf="formGroup.get('password')?.getError('maxlength')">Ce champs est très long !</div> -->
+                          <!-- <div  class="text-danger" *ngIf="formGroup.get('password')?.getError('minlength')">Ce champs est très petite !</div> -->
+                        </div>
+                      </div>
+                      <div class="col-12 mb-6">
+                          <button [disabled]="formGroup.invalid" type="submit" class="btn btn-outline-success" style="width: 100%;">Enregistrer</button>
+                      </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

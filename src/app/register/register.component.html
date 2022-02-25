@@ -1,0 +1,52 @@
+
+
+<section  class="position-absolute top-50 start-50 translate-middle">
+  <div class="card mb-5" style="width: 400px;">
+      <div class="card-body">
+          <h3 class="card-title text-center mt-4">Register</h3>
+          <div class="row mt-4">
+              <form [formGroup]="formGroup" (ngSubmit)="register()">
+                <div class="col-12 mb-4">
+                  <input type="text" class="form-control" formControlName="nameUser" placeholder="User Name" >
+                  <div *ngIf="formGroup.get('nameUser')?.invalid && (formGroup.get('nameUser')?.touched || formGroup.get('nameUser')?.dirty)">
+                    <div class="text-danger" *ngIf="formGroup.get('nameUser')?.getError('required')">Ce champs est obligatoire !</div>
+                    <!-- <div  class="text-danger" *ngIf="formGroup.get('userName')?.getError('userName')">Ce champs doit respecter la frome d'un email !</div> -->
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <input type="text" class="form-control" formControlName="firstName" placeholder="First Name" >
+                  <div *ngIf="formGroup.get('firstName')?.invalid && (formGroup.get('firstName')?.touched || formGroup.get('firstName')?.dirty)">
+                    <div class="text-danger" *ngIf="formGroup.get('firstName')?.getError('required')">Ce champs est obligatoire !</div>
+                    <!-- <div  class="text-danger" *ngIf="formGroup.get('email')?.getError('email')">Ce champs doit respecter la frome d'un email !</div> -->
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <input type="text" class="form-control" formControlName="lastName" placeholder="Last Name" >
+                  <div *ngIf="formGroup.get('lastName')?.invalid && (formGroup.get('lastName')?.touched || formGroup.get('lastName')?.dirty)">
+                    <div class="text-danger" *ngIf="formGroup.get('lastName')?.getError('required')">Ce champs est obligatoire !</div>
+                    <!-- <div  class="text-danger" *ngIf="formGroup.get('email')?.getError('email')">Ce champs doit respecter la frome d'un email !</div> -->
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <input type="email" class="form-control" formControlName="email" placeholder="Email" autocomplete="email">
+                  <div *ngIf="formGroup.get('email')?.invalid && (formGroup.get('email')?.touched || formGroup.get('email')?.dirty)">
+                    <div class="text-danger" *ngIf="formGroup.get('email')?.getError('required')">Ce champs est obligatoire !</div>
+                    <div  class="text-danger" *ngIf="formGroup.get('email')?.getError('email')">Ce champs doit respecter la frome d'un email !</div>
+                  </div>
+                </div>
+                <div class="col-12 mb-4">
+                  <input type="password" class="form-control" formControlName="password" placeholder="mot de passe" >
+                  <div *ngIf="formGroup.get('password')?.invalid && (formGroup.get('password')?.touched || formGroup.get('password')?.dirty)">
+                    <div class="text-danger" *ngIf="formGroup.get('password')?.getError('required')">Ce champs est obligatoire !</div>
+                    <div  class="text-danger" *ngIf="formGroup.get('password')?.getError('maxlength')">Ce champs est très long !</div>
+                    <div  class="text-danger" *ngIf="formGroup.get('password')?.getError('minlength')">Ce champs est très petite !</div>
+                  </div>
+                </div>
+                <div class="col-12 mb-6">
+                    <button [disabled]="formGroup.invalid" type="submit" class="btn btn-outline-success" style="width: 100%;">Se Connecter</button>
+                </div>
+              </form>
+          </div>
+      </div>
+  </div>
+</section>
